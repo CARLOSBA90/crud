@@ -1,5 +1,7 @@
 package com.cepr.principal.servicio;
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -69,6 +71,16 @@ public class ServicioTitularImp implements ServicioTitular{
        	 return true;
          }
 		return false;
+	}
+
+	@Override
+	public Optional<personaFisica> findFisicaById(Long idTitular) {
+		return fisicaRep.findById(idTitular);
+	}
+
+	@Override
+	public Optional<personaJuridica> findJuridicaById(Long idTitular) {
+		return juridicaRep.findById(idTitular);
 	}
 	
 	

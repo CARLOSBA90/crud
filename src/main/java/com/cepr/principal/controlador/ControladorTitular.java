@@ -1,6 +1,9 @@
 package com.cepr.principal.controlador;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +18,7 @@ import com.cepr.principal.modelo.Titular;
 import com.cepr.principal.modelo.personaFisica;
 import com.cepr.principal.modelo.personaJuridica;
 import com.cepr.principal.servicio.ServicioTitular;
+
 
 @RestController
 @RequestMapping("/titular")
@@ -37,6 +41,18 @@ public class ControladorTitular {
 	public Iterable<Titular> findAllJ(){
         return service.listJuridica();
     }
+	
+	@GetMapping("/get/fisica/{id}")
+	public Optional<personaFisica> findFisicacaById(@PathVariable("id") Long idTitular){
+        return service.findFisicaById(idTitular);
+    }
+	
+	@GetMapping("/get/juridica/{id}")
+	public Optional<personaJuridica> findJuridicaById(@PathVariable("id") Long idTitular){
+        return service.findJuridicaById(idTitular);
+    }
+	
+	
 	
 	@PostMapping("/save/fisica")  ///TODO
     public Mensaje save(@RequestBody personaFisica titular) {

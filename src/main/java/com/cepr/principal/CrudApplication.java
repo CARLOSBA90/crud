@@ -6,7 +6,6 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 
 @SpringBootApplication
 public class CrudApplication extends org.springframework.boot.web.servlet.support.SpringBootServletInitializer {
-	//main
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
         return application.sources(CrudApplication.class);
     }
