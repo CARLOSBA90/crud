@@ -21,7 +21,7 @@ public class personaJuridica extends Titular implements Serializable{
 	@Size(min = 2, max = 100)
 	private String razonSocial;
 	@Column
-	@Range(min = 1880, max = 2021)
+	@Range(min = 1880, max = 2022)
 	private int anioFundacion;
 
 	public String getRazonSocial() {
