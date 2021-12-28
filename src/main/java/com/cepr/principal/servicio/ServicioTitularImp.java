@@ -5,6 +5,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.cepr.principal.modelo.Mensaje;
 import com.cepr.principal.modelo.Titular;
 import com.cepr.principal.modelo.personaFisica;
 import com.cepr.principal.modelo.personaJuridica;
@@ -29,11 +30,11 @@ public class ServicioTitularImp implements ServicioTitular{
 	}
 
 	@Override
-	public Boolean saveTitular(Titular titular) {
+	public Mensaje saveTitular(Titular titular) {
 		if(!titularRep.existsByRut(titular.getRut())) { ///DE SER TRUE, NO EXISTE, PROCEDE A GUARDAR
 			titularRep.save(titular);
-		return true; }
-		return false;
+			return new Mensaje("Guardado con exito"); }
+			return new Mensaje("RUT duplicado! Registro no valido");
 	}
 
 	@Override

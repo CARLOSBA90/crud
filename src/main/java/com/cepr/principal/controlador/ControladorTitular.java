@@ -56,15 +56,15 @@ public class ControladorTitular {
 	
 	@PostMapping("/save/fisica")  ///TODO
     public Mensaje save(@RequestBody personaFisica titular) {
-		if(titular!=null && service.saveTitular(titular))
-			return new Mensaje("Guardado con exito");
+		   if(titular!=null)
+		    return service.saveTitular(titular);
 		return new Mensaje("Fallo en el registro");
 	}
 	
 	@PostMapping("/save/juridica")  ///TODO
     public Mensaje save(@RequestBody personaJuridica titular) {
-		if(titular!=null && service.saveTitular(titular))
-			return new Mensaje("Guardado con exito");
+		if(titular!=null)
+			return service.saveTitular(titular);
 		return new Mensaje("Fallo en el registro");
 	}
 	
